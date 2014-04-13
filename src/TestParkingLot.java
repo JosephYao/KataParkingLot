@@ -35,7 +35,7 @@ public class TestParkingLot {
     @Test
     public void can_park_another_car_after_parked_car_left() {
         parkCars(1);
-        parkingLot.get(1);
+        parkingLot.leave(1);
 
         assertNextParkingIdEquals(1);
     }

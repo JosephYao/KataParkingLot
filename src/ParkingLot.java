@@ -14,7 +14,7 @@ public class ParkingLot {
         return ++currentParkingId;
     }
 
-    public void get(int parkingId) {
+    public void leave(int parkingId) {
         currentParkingId--;
     }
 }
