@@ -1,4 +1,6 @@
 public class ParkingLot {
+    private int currentParkingId = 0;
+
     public ParkingLot(int capacity) {
 
     }
@@ -8,6 +10,6 @@ public class ParkingLot {
     }
 
     public int park() {
-        return 1;
+        return ++currentParkingId;
     }
 }

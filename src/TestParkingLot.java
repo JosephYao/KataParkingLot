@@ -14,8 +14,19 @@ public class TestParkingLot {
 
     @Test
     public void can_park_car_when_parking_lot_is_just_opened() {
+        assertNextParkingIdEquals(1);
+    }
+
+    @Test
+    public void can_park_another_car_after_first_car_parked() {
+        parkingLot.park();
+
+        assertNextParkingIdEquals(2);
+    }
+
+    private void assertNextParkingIdEquals(int expectedParkingId) {
         int actualParkingId = parkingLot.park();
 
-        assertEquals(1, actualParkingId);
+        assertEquals(expectedParkingId, actualParkingId);
     }
 }
