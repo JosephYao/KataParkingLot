@@ -32,6 +32,14 @@ public class TestParkingLot {
         assertTrue(parkingLot.isFull());
     }
 
+    @Test
+    public void can_park_another_car_after_parked_car_left() {
+        parkCars(1);
+        parkingLot.get(1);
+
+        assertNextParkingIdEquals(1);
+    }
+
     private void parkCars(int number) {
         for (int i = 0; i < number; i++)
             parkingLot.park();

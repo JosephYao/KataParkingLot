@@ -13,4 +13,8 @@ public class ParkingLot {
     public int park() {
         return ++currentParkingId;
     }
+
+    public void get(int parkingId) {
+        currentParkingId--;
+    }
 }
