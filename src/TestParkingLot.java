@@ -41,9 +41,9 @@ public class TestParkingLot {
     }
 
 //    @Test
-//    public void parking_id_is_1_when_second_parked_car_leave() {
+//    public void parking_id_is_1_when_first_parked_car_leave_and_second_car_still_there() {
 //        parkCars(2);
-//        parkingLot.leave(2);
+//        parkingLot.leave(1);
 //
 //        assertNextParkingIdEquals(1);
 //    }
