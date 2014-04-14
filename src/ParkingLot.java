@@ -1,13 +1,17 @@
+import java.util.Arrays;
+
 public class ParkingLot {
-    private final int capacity;
     private int currentParkingId = 0;
 
+    private final boolean[] spaceAvailabilities;
+
     public ParkingLot(int capacity) {
-        this.capacity = capacity;
+        spaceAvailabilities = new boolean[capacity + 1];
+        Arrays.fill(spaceAvailabilities, true);
     }
 
     public boolean isFull() {
-        return currentParkingId == capacity;
+        return currentParkingId == spaceAvailabilities.length - 1;
     }
 
     public int park() {
