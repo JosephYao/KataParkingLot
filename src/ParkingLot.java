@@ -1,24 +1,21 @@
 import java.util.Arrays;
 
 public class ParkingLot {
-    private int currentParkingId = 0;
-
-    private final boolean[] spaceAvailabilities;
+    private final Boolean[] spaceAvailabilities;
 
     public ParkingLot(int capacity) {
-        spaceAvailabilities = new boolean[capacity + 1];
+        spaceAvailabilities = new Boolean[capacity + 1];
         Arrays.fill(spaceAvailabilities, true);
     }
 
     public boolean isFull() {
-        return currentParkingId == spaceAvailabilities.length - 1;
+        return Arrays.asList(spaceAvailabilities).lastIndexOf(true) == 0;
     }
 
     public int park() {
         for (int space = 1; space < spaceAvailabilities.length; space++)
             if (spaceAvailabilities[space]) {
                 spaceAvailabilities[space] = false;
-                currentParkingId++;
                 return space;
             }
         throw new IllegalStateException();
@@ -26,6 +23,5 @@ public class ParkingLot {
 
     public void leave(int parkingId) {
         spaceAvailabilities[parkingId] = true;
-        currentParkingId--;
     }
 }
