@@ -15,10 +15,12 @@ public class ParkingLot {
     }
 
     public int park() {
-        return ++currentParkingId;
+        spaceAvailabilities[++currentParkingId] = false;
+        return currentParkingId;
     }
 
     public void leave(int parkingId) {
+        spaceAvailabilities[parkingId] = true;
         currentParkingId--;
     }
 }
