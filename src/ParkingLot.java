@@ -15,8 +15,13 @@ public class ParkingLot {
     }
 
     public int park() {
-        spaceAvailabilities[++currentParkingId] = false;
-        return currentParkingId;
+        for (int space = 1; space < spaceAvailabilities.length; space++)
+            if (spaceAvailabilities[space]) {
+                spaceAvailabilities[space] = false;
+                currentParkingId++;
+                return space;
+            }
+        throw new IllegalStateException();
     }
 
     public void leave(int parkingId) {

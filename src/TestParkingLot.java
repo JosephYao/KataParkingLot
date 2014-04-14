@@ -40,13 +40,13 @@ public class TestParkingLot {
         assertNextParkingIdEquals(1);
     }
 
-//    @Test
-//    public void parking_id_is_1_when_first_parked_car_leave_and_second_car_still_there() {
-//        parkCars(2);
-//        parkingLot.leave(1);
-//
-//        assertNextParkingIdEquals(1);
-//    }
+    @Test
+    public void parking_id_is_1_when_first_parked_car_leave_and_second_car_still_there() {
+        parkCars(2);
+        parkingLot.leave(1);
+
+        assertNextParkingIdEquals(1);
+    }
 
     private void parkCars(int number) {
         for (int i = 0; i < number; i++)
