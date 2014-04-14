@@ -9,7 +9,7 @@ public class ParkingLot {
     }
 
     public boolean isFull() {
-        return Arrays.asList(spaceAvailabilities).lastIndexOf(true) == -1;
+        return Arrays.asList(spaceAvailabilities).indexOf(true) == -1;
     }
 
     public int park() {
