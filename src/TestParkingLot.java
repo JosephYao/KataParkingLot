@@ -52,8 +52,6 @@ public class TestParkingLot {
         parkCarsToCapacity();
 
         parkCars(1);
-
-        fail();
     }
 
     private void parkCarsToCapacity() {
