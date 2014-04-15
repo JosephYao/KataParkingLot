@@ -54,6 +54,11 @@ public class TestParkingLot {
         parkCars(1);
     }
 
+    @Test(expected = InvalidParkingIdException.class)
+    public void throw_exception_when_leave_car_with_parking_id_out_of_range() {
+        parkingLot.leave(0);
+    }
+
     private void parkCarsToCapacity() {
         parkCars(CAPACITY);
     }
