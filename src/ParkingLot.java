@@ -26,11 +26,18 @@ public class ParkingLot {
     }
 
     public void leave(int parkingId) {
-        if (spaceIndex(parkingId) < 0 ||
-            spaceIndex(parkingId) > spaceAvailabilities.length - 1)
+        if (isParkingIdOutOfRange(parkingId))
+            throw new InvalidParkingIdException();
+
+        if (spaceAvailabilities[spaceIndex(parkingId)])
             throw new InvalidParkingIdException();
 
         spaceAvailabilities[spaceIndex(parkingId)] = true;
+    }
+
+    private boolean isParkingIdOutOfRange(int parkingId) {
+        return spaceIndex(parkingId) < 0 ||
+               spaceIndex(parkingId) > spaceAvailabilities.length - 1;
     }
 
     private int spaceIndex(int parkingId) {

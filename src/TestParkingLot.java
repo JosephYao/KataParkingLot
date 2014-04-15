@@ -64,6 +64,11 @@ public class TestParkingLot {
         parkingLot.leave(CAPACITY + 1);
     }
 
+    @Test(expected = InvalidParkingIdException.class)
+    public void throw_exception_when_leave_car_with_parking_id_belong_to_an_available_space() {
+        parkingLot.leave(1);
+    }
+
     private void parkCarsToCapacity() {
         parkCars(CAPACITY);
     }
