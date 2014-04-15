@@ -26,7 +26,8 @@ public class ParkingLot {
     }
 
     public void leave(int parkingId) {
-        if (spaceIndex(parkingId) < 0)
+        if (spaceIndex(parkingId) < 0 ||
+            spaceIndex(parkingId) > spaceAvailabilities.length - 1)
             throw new InvalidParkingIdException();
 
         spaceAvailabilities[spaceIndex(parkingId)] = true;
