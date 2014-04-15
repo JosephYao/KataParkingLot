@@ -18,7 +18,7 @@ public class ParkingLot {
                 spaceAvailabilities[space] = false;
                 return parkingId(space);
             }
-        throw new IllegalStateException();
+        throw new NoAvailableSpaceException();
     }
 
     private int parkingId(int space) {

@@ -1,12 +1,11 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TestParkingLot {
 
-    ParkingLot parkingLot = new ParkingLot(5);
+    private static final int CAPACITY = 5;
+    ParkingLot parkingLot = new ParkingLot(CAPACITY);
 
     @Test
     public void parking_lot_is_not_full_when_just_opened() {
@@ -27,7 +26,7 @@ public class TestParkingLot {
 
     @Test
     public void parking_lot_is_full_when_car_parked_to_its_capacity() {
-        parkCars(5);
+        parkCarsToCapacity();
 
         assertTrue(parkingLot.isFull());
     }
@@ -46,6 +45,19 @@ public class TestParkingLot {
         parkingLot.leave(1);
 
         assertNextParkingIdEquals(1);
+    }
+
+    @Test(expected = NoAvailableSpaceException.class)
+    public void throw_exception_when_park_car_while_parking_lot_is_already_full() {
+        parkCarsToCapacity();
+
+        parkCars(1);
+
+        fail();
+    }
+
+    private void parkCarsToCapacity() {
+        parkCars(CAPACITY);
     }
 
     private void parkCars(int number) {
