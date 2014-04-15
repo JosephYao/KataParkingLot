@@ -1,6 +1,8 @@
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TestParkingLot {
 
@@ -26,7 +28,7 @@ public class TestParkingLot {
 
     @Test
     public void parking_lot_is_full_when_car_parked_to_its_capacity() {
-        parkCarsToCapacity();
+        parkCars(CAPACITY);
 
         assertTrue(parkingLot.isFull());
     }
@@ -45,32 +47,6 @@ public class TestParkingLot {
         parkingLot.leave(1);
 
         assertNextParkingIdEquals(1);
-    }
-
-    @Test(expected = NoAvailableSpaceException.class)
-    public void throw_exception_when_park_car_while_parking_lot_is_already_full() {
-        parkCarsToCapacity();
-
-        parkCars(1);
-    }
-
-    @Test(expected = InvalidParkingIdException.class)
-    public void throw_exception_when_leave_car_with_parking_id_smaller_than_the_smallest_possible_id() {
-        parkingLot.leave(0);
-    }
-
-    @Test(expected = InvalidParkingIdException.class)
-    public void throw_exception_when_leave_car_with_parking_id_bigger_than_the_biggest_possible_id() {
-        parkingLot.leave(CAPACITY + 1);
-    }
-
-    @Test(expected = InvalidParkingIdException.class)
-    public void throw_exception_when_leave_car_with_parking_id_belong_to_an_available_space() {
-        parkingLot.leave(1);
-    }
-
-    private void parkCarsToCapacity() {
-        parkCars(CAPACITY);
     }
 
     private void parkCars(int number) {
