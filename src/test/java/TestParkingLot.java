@@ -49,6 +49,14 @@ public class TestParkingLot {
         assertNextParkingIdEquals(1);
     }
 
+    @Test
+    public void parking_id_is_last_one_after_last_parked_car_leave_and_only_one_available_space() {
+        parkCars(CAPACITY);
+        parkingLot.leave(CAPACITY);
+
+        assertNextParkingIdEquals(CAPACITY);
+    }
+
     private void parkCars(int number) {
         for (int i = 0; i < number; i++)
             parkingLot.park();
